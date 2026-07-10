@@ -3,3 +3,7 @@ Theme Name: Tien Theme
 Author: Tien
 Version: 1.0
 */
+* {
+    margin: 0;
+    padding: 0;
+}
