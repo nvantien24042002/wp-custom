@@ -1,27 +1,23 @@
-<?php
-get_header();
-?>
-<div class="post-grid">
-    <?php if(have_posts()): ?>
-        <?php while(have_posts()) : the_post(); ?>
-            <div class="post-card">
-                <div class="post-thumb">
-                    <?php the_post_thumbnail(); ?>
-                </div>
+<?php get_header(); ?>
 
-                <h2 class="post-title">
-                    <a href="<?php the_permalink(); ?>">
-                        <?php the_title(); ?>
-                    </a>
-                </h2>
-                <p class="post-excerpt">
-                    <?php the_excerpt(); ?>
-                </p>
+<main class="container">
 
-            </div>
-        <?php endwhile; ?>
-    <?php endif; ?>
-</div>
-<?php
-get_footer();
-?>
+    <div class="post-grid">
+
+        <?php if (have_posts()) : ?>
+            
+            <?php while (have_posts()) : the_post(); ?>
+
+                <?php get_template_part('template-parts/content', 'post'); ?>
+
+            <?php endwhile; ?>
+
+        <?php else : ?>
+            <p>No posts found</p>
+        <?php endif; ?>
+
+    </div>
+
+</main>
+
+<?php get_footer(); ?>
